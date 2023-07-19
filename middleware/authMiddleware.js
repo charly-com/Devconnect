@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import asyncHandler from "express-async-handler";
 
-export const auth = asyncHandler(async (req, res, next) => {
+ const auth = asyncHandler(async (req, res, next) => {
   let token;
   if (
     req.headers.authorization &&
@@ -24,4 +24,4 @@ export const auth = asyncHandler(async (req, res, next) => {
   }
 });
 
-
+export default auth;
