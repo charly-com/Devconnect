@@ -6,6 +6,9 @@ import colors from "colors";
 import logger from 'morgan';
 import { errorHandler, routeNotFound } from "../server/middleware/errorMiddleware.js";
 import userRoutes from "../server/routes/userRoutes.js";
+import postRoutes from "../server/routes/postRoutes.js";
+import notifyRouter from "../server/routes/notificationRoutes.js";
+import commentRouter from "../server/routes/commentRoutes.js";
 
 dotenv.config();
 
@@ -18,7 +21,10 @@ app.use(cors());
 
 
 // Main routes
-app.use("/api/users", userRoutes);
+app.use("/api", userRoutes);
+app.use("/api", postRoutes);
+app.use('/api', notifyRouter);
+app.use('api', commentRouter)
 
 // Error handling routes
 app.use(routeNotFound);

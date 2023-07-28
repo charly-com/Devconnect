@@ -9,8 +9,7 @@ import {
 const router = express.Router();
 
 
-router.route("/").post(upload.single('picturePath'), registerUser).get(auth, allUsers);
-router.route("/login").post(loginUser);
+
 
 
 
